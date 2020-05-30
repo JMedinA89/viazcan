@@ -13,12 +13,35 @@
 	<link href="https://fonts.googleapis.com/css2?family=Jost&display=swap" rel="stylesheet">
 
 	<!-- Stylesheets -->
-	<link rel="stylesheet" href="css/bootstrap.min.css"/>
-	<link rel="stylesheet" href="css/font-awesome.min.css"/>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<!--link rel="stylesheet" href="css/bootstrap.min.css"/-->
+	<!--link rel="stylesheet" href="css/font-awesome.min.css"/-->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>	
+	
 	<link rel="stylesheet" href="css/flaticon.css"/>
 	<link rel="stylesheet" href="css/owl.carousel.css"/>
 	<link rel="stylesheet" href="css/style.css"/>
 	<link rel="stylesheet" href="css/animate.css"/>
+
+	<!--====== Javascripts & Jquery ======-->
+	<!--script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script-->
+
+	<!--script src="js/jquery-3.2.1.min.js"></script-->
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+	<!--script src="js/bootstrap.min.js"></script-->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/circle-progress.min.js"></script>
+	<script src="js/main.js"></script>
+	
+  
+
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<!-- production version, optimized for size and speed -->
+	<!--<script src="https://cdn.jsdelivr.net/npm/vue"></script>-->
+
 
 
 	<!--[if lt IE 9]>
@@ -27,7 +50,7 @@
 	<![endif]-->
 
 </head>
-<body>
+<body >
 	<!-- Page Preloder -->
 	<div id="preloder">
 		<div class="loader"></div>
@@ -57,10 +80,10 @@
 			</div>
 		</div>
 	</div>
-</header>
+
 
 	<!-- Header section -->
-	<header class="header-section">
+	<!--<header class="header-section">-->
 		<div class="container">
 			<!-- Site Logo -->
 			<a href="index.html" class="site-logo">
@@ -83,7 +106,7 @@
                                                 
 	<!-- Page info section -->
 	<section class="page-info-section set-bg" data-setbg="img/page-info-bg/2.jpg">
-		<div class="container">
+		<div  class="container">
 			<h2>Busca tus estudios</h2>
 		</div>
 	</section>
@@ -91,50 +114,32 @@
 		
 		<!--  Elements section -->
 		<section class="elements-section">
-			<div class="container">
-				<!-- element -->
-								<!-- element -->
-				<div class="element">
-					<h3 class="el-title">Busca y cotiza tus estudios</h3>	
+			<div id="app" >
+				<div class="container">
 					<div class="row">
-						<div class="col-lg-6">
-							<!-- Accordions -->
-							<div id="accordion" class="accordion-area mb-5 mb-lg-0">
-								<div class="panel">
-									<div class="panel-header" id="headingOne">
-										<button class="panel-link active" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapse1">Busca tus estudios</button>
-									</div>
-									<div id="collapse1" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-										<div class="panel-body">
-											<img src="img/lab.png" alt="">
-											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis semper venenatis turpis eget suscipit. Orci varius natoque penatibus et magnis dis parturient montes.</p>
-										</div>
-									</div>
+						<div class="col-sm">
+							<div class="input-group mb-3">
+								<div class="input-group-prepend">
+								  <span class="input-group-text" id="basic-addon1">Estudio</span>
 								</div>
-								
-								
-							</div>
+								<input type="text" v-model="inputFindModel" class="form-control" aria-label="estudio" aria-describedby="basic-addon1">
+							  </div>
 						</div>
-						
-					</div>
+						<div class="col-sm">
+							<button type="button" class="btn btn-primary" v-on:click="findindStudye()">Buscar</button>
+						</div>
+					  </div>
 				</div>
-				<!-- element -->
-				
-				<!-- element -->
-				
-				<!-- element -->
-				<table>
-					<tr>
-						<th> id </th>
-						<th> nombre </th>
-					</tr>
-					<tr>
-						<th> 2</th>
-						<th> octavous </th>
-					</tr>
 
-				</table>
-				
+				<div id="ResulsetTable">
+					 <!--study-template v-for="(study, index) in resulsetFin" v-bind:study="study" v-bind:key="index"/-->
+				</div>
+				<div class="container">
+					<div class="card-columns">
+						<study-template v-for="(study, index) in resulsetFin" v-bind:study="study" v-bind:key="index"></study-template>
+				    </div>
+				</div>
+
 			</div>
 		</section>
 		<!-- Contact section end -->
@@ -151,13 +156,48 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Labor
 	</footer>
 	<!-- Footer top section end -->
                                                 
+	<script>
+		
+		Vue.component('study-template',{
+			props:['study'],
+			template:'<div class="card border-primary mb-3" ><div class="card-body"><h5 class="card-title">{{study.studyName}}</h5><img class="rounded float-left" :src="getImage(study.image)" alt="Not Found" ><p class="card-text">{{study.desc}}</p></div><div class="card-footer"><div class="row"><div class="col-sm"><p>Precio: $ {{study.price}}</p></div><div class="col-sm"><button type="button" class="btn btn-success">Agregar al carrito</button></div></div></div></div>',
+			methods:{
+				getImage: function(name){
+					console.log('./img/studies/'+name)
+					return './img/studies/'+name;
+				}
+			}
+		})
 
-	<!--====== Javascripts & Jquery ======-->
-	<script src="js/jquery-3.2.1.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/owl.carousel.min.js"></script>
-	<script src="js/circle-progress.min.js"></script>
-	<script src="js/main.js"></script>
+		var app = new Vue({ 
+			el: '#app', 
+			data: { 
+				resulsetFin:[{"studyName":"craneo","image":"3.jpg","price":123,"desc":"por tanto ver php quedas loco y ademas usar paginas web mal diseñadas lenguas dont do it"},{"studyName":"higado","image":"3.jpg","price":123,"desc":"asdasd"},{"studyName":"lengua de toro","image":"3.jpg","price":123,"desc":"asdasd"},{"studyName":"lengua de toro","image":"3.jpg","price":123,"desc":"asdasd"},{"studyName":"lengua de toro","image":"3.jpg","price":123,"desc":"asdasd"}],
+				studySelected:[],
+				inputFindModel:'',
+
+			},
+			methods:{
+				findindStudye: function(){
+					this.gettingData();
+				},
+				gettingData:function (){
+					if(this.inputFindModel === ''){
+						alert('captura el metodo a buscar..')
+					}else{
+
+					}					
+				},
+				getImage(a){
+					return "xx";
+				}
+
+			}
+		});
+		function getImageUrl(imgName){
+					return require('./img/studies/'+imgName)
+		}
+	</script>
 
     </body>
 </html>
