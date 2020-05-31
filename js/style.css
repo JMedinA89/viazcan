@@ -366,6 +366,7 @@ ul, ol {
 .iconbox:hover .iconbox-icon {
 	background: #71cd29;
 	color: #fff;
+	
 }
 /*------------------
   Header section
@@ -421,7 +422,8 @@ ul, ol {
 }
 .hi-item .hs-icon {
 	float: left;
-	margin-right: 22px;
+	margin-right: 122px;
+	
 }
 .hi-item .hi-content {
 	padding-left: 40px;

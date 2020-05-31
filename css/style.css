@@ -290,7 +290,7 @@ ol {
 }
 
 .accordion-area .panel-link {
-  text-align: left;
+  text-align: right;  
   position: relative;
   width: 100%;
   padding: 23px 40px;
@@ -511,15 +511,15 @@ ol {
 }
 
 .header-info {
-  padding-top: -26px;
-  padding-bottom: -12px;
+  padding-top: -6px;
+  padding-bottom: 0px;
   border-top: 11px solid #fff;
   background: #fff;
  
 }
 
 .hi-item {
-  margin-bottom: -10px;
+  margin-bottom: 5px;
 }
 
 .hi-item .hs-icon {
