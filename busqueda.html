@@ -13,12 +13,36 @@
 	<link href="https://fonts.googleapis.com/css2?family=Jost&display=swap" rel="stylesheet">
 
 	<!-- Stylesheets -->
-	<link rel="stylesheet" href="css/bootstrap.min.css"/>
-	<link rel="stylesheet" href="css/font-awesome.min.css"/>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<!--link rel="stylesheet" href="css/bootstrap.min.css"/-->
+	<!--link rel="stylesheet" href="css/font-awesome.min.css"/-->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>	
+	
 	<link rel="stylesheet" href="css/flaticon.css"/>
 	<link rel="stylesheet" href="css/owl.carousel.css"/>
 	<link rel="stylesheet" href="css/style.css"/>
 	<link rel="stylesheet" href="css/animate.css"/>
+
+	<!--====== Javascripts & Jquery ======-->
+	<!--script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script-->
+
+	<!--script src="js/jquery-3.2.1.min.js"></script-->
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+	<!--script src="js/bootstrap.min.js"></script-->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/circle-progress.min.js"></script>
+	<script src="js/main.js"></script>
+	
+  
+
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+	<!-- production version, optimized for size and speed -->
+	<!--<script src="https://cdn.jsdelivr.net/npm/vue"></script>-->
+
 
 
 	<!--[if lt IE 9]>
@@ -27,7 +51,7 @@
 	<![endif]-->
 
 </head>
-<body>
+<body >
 	<!-- Page Preloder -->
 	<div id="preloder">
 		<div class="loader"></div>
@@ -57,10 +81,10 @@
 			</div>
 		</div>
 	</div>
-</header>
+
 
 	<!-- Header section -->
-	<header class="header-section">
+	<!--<header class="header-section">-->
 		<div class="container">
 			<!-- Site Logo -->
 			<a href="index.html" class="site-logo">
@@ -83,7 +107,7 @@
                                                 
 	<!-- Page info section -->
 	<section class="page-info-section set-bg" data-setbg="img/page-info-bg/2.jpg">
-		<div class="container">
+		<div  class="container">
 			<h2>Busca tus estudios</h2>
 		</div>
 	</section>
@@ -91,50 +115,101 @@
 		
 		<!--  Elements section -->
 		<section class="elements-section">
-			<div class="container">
-				<!-- element -->
-								<!-- element -->
-				<div class="element">
-					<h3 class="el-title">Busca y cotiza tus estudios</h3>	
+			<div id="app" >
+				<div class="container">
 					<div class="row">
-						<div class="col-lg-6">
-							<!-- Accordions -->
-							<div id="accordion" class="accordion-area mb-5 mb-lg-0">
-								<div class="panel">
-									<div class="panel-header" id="headingOne">
-										<button class="panel-link active" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapse1">Busca tus estudios</button>
-									</div>
-									<div id="collapse1" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-										<div class="panel-body">
-											<img src="img/lab.png" alt="">
-											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis semper venenatis turpis eget suscipit. Orci varius natoque penatibus et magnis dis parturient montes.</p>
-										</div>
-									</div>
+						<div class="col-sm">
+							<div class="input-group mb-3">
+								<div class="input-group-prepend">
+								  <span class="input-group-text" id="basic-addon1">Estudio</span>
 								</div>
-								
-								
-							</div>
+								<input type="text" v-model="inputFindModel" class="form-control" aria-label="estudio" aria-describedby="basic-addon1">
+							  </div>
+						</div>
+						<div class="col-sm">
+							<button type="button" class="btn btn-primary" v-on:click="findindStudye()">Buscar</button>
+						</div>
+						<div class="col-sm">
+							<img src="./img/shoppingCar.png" >
+							{{shoppingCar.length}} Estudios, Total $ {{totalShopping}}
+							<img src="./img/email32.png" 
+								 v-if="shoppingCar.length > 0" 
+								 data-toggle="modal" data-target="#modalCotizacion">
+						</div>
+					  </div>
+				</div>
+
+				<div id="ResulsetTable">
+					 <!--study-template v-for="(study, index) in resulsetFin" v-bind:study="study" v-bind:key="index"/-->
+				</div>
+				<div class="container">
+					<div class="card-columns">
+						<study-template v-for="(study, index) in resulsetFin" 
+										v-bind:study="study" 
+										v-on:additemtoshpcar="addStudyInShoppingcard" 
+										v-bind:key="index">
+						</study-template>
+				    </div>
+				</div>
+
+
+				<div class="modal fade" id="modalCotizacion">
+					<div class="modal-dialog modal-lg">
+					  <div class="modal-content">
+					  
+						<!-- Modal Header -->
+						<div class="modal-header">
+						  <h4 class="modal-title">Estudios a cotizar</h4>
+						  <button type="button" class="close" data-dismiss="modal">×</button>
 						</div>
 						
+						<!-- Modal body -->
+						<div class="modal-body">
+							<div class="container">
+								<div class="row">
+									<div class="col-sm">
+										<div class="input-group mb-3">
+											<div class="input-group-prepend">
+											  <span class="input-group-text" id="basic-addon1">Email</span>
+											</div>
+											<input type="text" v-model="emailSendModel" class="form-control" aria-label="email" aria-describedby="basic-addon1">
+										  </div>
+									</div>
+									<div class="col-sm">
+										<button type="button" class="btn btn-primary" v-on:click="sendStudiesToEmail()">Enviar</button>
+									</div>
+								  </div>
+							</div>
+							<div class="table-responsive">
+								<table class="table table-striped">
+									<thead>
+									<tr>
+										<th>Estudio</th>
+										<th>Descripcion</th>
+										<th>Precio</th>
+										<th>Eliminar</th>
+									</tr>
+									</thead>
+									<tbody>
+									<tr v-for="(study,index) in shoppingCar">
+										<td>{{study.studyName}}</td>
+										<td>{{study.desc}}</td>
+										<td>${{study.price}}</td>
+										<td><img src="./img/del32.png" v-on:click="deleteEstudio(study.studyName)"></td>
+									</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>						
+						<!-- Modal footer -->
+						<div class="modal-footer">
+						  <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+						</div>
+						
+					  </div>
 					</div>
 				</div>
-				<!-- element -->
-				
-				<!-- element -->
-				
-				<!-- element -->
-				<table>
-					<tr>
-						<th> id </th>
-						<th> nombre </th>
-					</tr>
-					<tr>
-						<th> 2</th>
-						<th> octavous </th>
-					</tr>
 
-				</table>
-				
 			</div>
 		</section>
 		<!-- Contact section end -->
@@ -151,13 +226,86 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Labor
 	</footer>
 	<!-- Footer top section end -->
                                                 
+	<script>
+		
+		Vue.component('study-template',{
+			props:['study'],
+			template:'<div class="card border-primary mb-3"><div class="card-body"><h5 class="card-title">{{study.studyName}}</h5><img class="rounded float-left" :src="getImage(study.image)" alt="Not Found" ><p class="card-text h6 text-justify">{{study.desc}}</p></div><div class="card-footer"><div class="row"><div class="col-sm"><p class="h6">Precio: $ {{study.price}}</p></div><div class="col-sm"><button type="button" v-on:click="sendItemIntoShopingCar()" class="btn btn-success">Agregar al carrito</button></div></div></div></div>',
+			methods:{
+				getImage: function(name){
+					return './img/studies/'+name;
+				},
+				sendItemIntoShopingCar:function(){
+					this.$emit('additemtoshpcar',this.study);
+				}
+			}
+		})
 
-	<!--====== Javascripts & Jquery ======-->
-	<script src="js/jquery-3.2.1.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/owl.carousel.min.js"></script>
-	<script src="js/circle-progress.min.js"></script>
-	<script src="js/main.js"></script>
+		var app = new Vue({ 
+			el: '#app', 
+			data: { 
+				resulsetFin:[],
+				shoppingCar:[],
+				inputFindModel:'',
+				emailSendModel:'',
+				totalShopping:0
+			},
+			computed:{},
+			methods:{
+				findindStudye: function(){
+					this.gettingData();
+					axios.get('https://jsonplaceholder.typicode.com/todos/1').then(resp => {
+						console.log(resp)
+					}).catch(err=>{
+						console.log(err)
+					})
+				},
+				gettingData:function (){
+					if(this.inputFindModel === ''){
+						alert('captura el estudio a buscar..')
+					}else{
+						this.resulsetFin = [
+							{"studyName":"FISTULOGRAFIA","image":"3.jpg","price":123,"desc":"PREVIA CITA, PRESENTAR ORDEN MEDICA, AGENDAR CON $200, NO REQUIERE AYUNO Y PRESENTARSE ASEADO. (FIRMAR RESPONSIVA)."},
+							{"studyName":"ULTRASONIDO ABDOMINO-PROSTATICO (HIGADO,VESICULA BILIAR,RIÑONES,PANCREAS,BASO Y PROSTATA) ","image":"3.jpg","price":1000,"desc":"PRESENTAR ORDEN MEDICA, AYUNO MÍNIMO DE 8 HORAS, TRAER DE LITRO A LITRO Y MEDIO DE AGUA, TOMARA CUANDO SE LE INDIQUE"},{"studyName":"lengua de toro","image":"3.jpg","price":123,"desc":"asdasd"},
+							{"studyName":"CULTIVO URETRAL","image":"3.jpg","price":360,"desc":"PRESENTARSE CON PREVIO ASEO GENITAL.TRES DÍAS DE ABSTINENCIA SEXUAL.NO ORINAR 3 HORAS ANTES DE LA TOMA DE MUESTRA.EN CASO DE ESTAR EN TRATAMIENTO CON ANTIBIÓTICOS, DEBE TERMINARLO Y PRESENTARSE 7 DÍAS DESPUÉS PARA EL ESTUDIO."},
+							{"studyName":"PAQUETE ORTODONCIA:LATERAL DE CRANEO, MODELOS DE ESTUDIO EN YESO, FOTOGRAFIAS CLINICAS INTRA Y EXTRAORAL Y CEFALOMETRIA.","image":"3.jpg","price":475,"desc":"PRESENTAR ORDEN MEDICA, CONFORME VAN LLEGANDO VAN PASANDO, SE ENTREGA EN 3 DIAS HABILES."}
+						]
+					}					
+				},
+				addStudyInShoppingcard:function(studyAdd){
+					var found = (this.shoppingCar.filter(function(item){ return item.studyName===studyAdd.studyName;})).length;
+					if( found == 0){
+						this.shoppingCar.push(studyAdd);
+						this.totalShopping+=studyAdd.price;
+					}else{
+						alert("este Estudio ya lo has agregado..");
+					}					
+				},
+				sendStudiesToEmail: function(){
+					//console.log("Vamos a enviar tu estudio al correo "+this.emailSendModel)
+					//execute method to send email and call restore data
+					var dataSend = { email: this.emailSendModel, estudies: this.shoppingCar };
+					axios.post('emailSend.php',dataSend).then(resp => {
+						this.restoreData();
+					}).catch(err=>{
+						this.restoreData();
+					});
+				},
+				deleteEstudio:function(name){
+					console.log("erase stude name "+name)
+					this.shoppingCar = this.shoppingCar.filter( function(item ){ return item.studyName !== name ;});
+				},
+				restoreData:function(){
+					this.resulsetFin=[];
+					this.shoppingCar=[];
+					this.inputFindModel='';
+					this.emailSendModel='';
+					this.totalShopping=0;
+					$("#modalCotizacion").modal("hide")
+				}
+			}
+		});
+	</script>
 
     </body>
 </html>
