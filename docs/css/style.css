@@ -24,7 +24,8 @@ h3,
 h4,
 h5,
 h6,
-h7 {
+h7,
+h8 {
   margin: 0;
   color: #2d2d2d;
   font-weight: 500;
@@ -59,10 +60,15 @@ h7 {
   font-size: 22px;  
   color: white; text-shadow: black 0.1em 0.1em 0.2em;
 }
+h8 {
+  font-size: 40px;
+  color: #696969;
+  text-shadow: #2d2d2d 0.1em 0.1em 0.3em;
+}
 
 p {
   font-size: 20px;
-  line-height: 1.5;
+  line-height: 1.2;
   color: #696969;
 }
 
@@ -290,7 +296,7 @@ ol {
 }
 
 .accordion-area .panel-link {
-  text-align: left;
+  text-align: right;  
   position: relative;
   width: 100%;
   padding: 23px 40px;
@@ -468,7 +474,8 @@ ol {
 }
 
 .site-logo {
-  display: inline-block;
+  display: relative;
+  padding-top: 50px;
 }
 
 .nav-switch {
@@ -478,7 +485,7 @@ ol {
 .main-menu {
   list-style: none;
   display: inline-block;
-  padding-top: 10px;
+  padding-top: 32px;
   float: right;
 }
 
@@ -488,38 +495,41 @@ ol {
 
 .main-menu li a {
   display: inline-block;
-  font-size: 19px;
+  font-size: 20px;
   color: #2d2d2d;
   position: relative;
-  padding: 5px 17px;
-  border-radius: 5px;
+  padding: 10px 10px;
+  border-radius: 25px;
   margin-left: 15px;
   font-weight: 500;
 }
 
 .main-menu li a:hover {
   color: #9AC43A;
+  background: #fff;  
 }
 
 .main-menu li.active a {
   background: #9AC43A;
-  color: #fff;
+  color: #fff;  
+  text-shadow: #2d2d2d 0.1em 0.1em 0.2em;
 }
 
 .main-menu li.active a:hover {
-  color: #fff;
+  color: #fff;  
+  text-shadow: #2d2d2d 0.1em 0.1em 0.2em;
 }
 
 .header-info {
-  padding-top: -26px;
-  padding-bottom: -12px;
+  padding-top: -6px;
+  padding-bottom: 0px;
   border-top: 11px solid #fff;
   background: #fff;
  
 }
 
 .hi-item {
-  margin-bottom: -10px;
+  margin-bottom: 5px;
 }
 
 .hi-item .hs-icon {
@@ -642,7 +652,7 @@ ol {
 }
 
 .banner-text p {
-  font-size: 38px;
+  font-size: 58px;
   font-style: italic;
 }
 
@@ -891,7 +901,7 @@ ol {
 }
 
 .banner-text p {
-  font-size: 12px;
+  font-size: 13px;
   font-style: italic;
 }
 
@@ -1172,8 +1182,9 @@ ol {
 }
 
 .doctor-item {
-  padding-top: 90px;
+  padding-top: 0px;
   text-align: center;
+  margin-bottom: 10px; 
 }
 
 .doctor-item.di-bg {
@@ -1516,7 +1527,7 @@ ol {
     max-width: 145px;
   }
   .main-menu li a {
-    font-size: 14px;
+    font-size: 16px;
     padding: 5px 10px;
     margin-left: 5px;
   }
@@ -1588,7 +1599,7 @@ ol {
     position: relative;
     height: 100%;
     right: 15px;
-    top: 20;  
+    top: 50px;  
     float: right;
     color: #0099CD;
     font-size: 36px;
@@ -1705,6 +1716,8 @@ ol {
   }
 }
 
+
+
 /* Small Mobile :320px. */
 
 @media only screen and (max-width: 479px) {
@@ -1712,10 +1725,31 @@ ol {
   .page-info-section h2 {
     font-size: 50px;
   }
+    .nav-switch {
+    position: relative;
+    height: 100%;
+    right: 15px;
+    top: 50px;  
+    float: right;
+    color: #0099CD;
+    font-size: 36px;
+    cursor: pointer;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+
+  h2 {
+    font-size: -10px;
+  }
+
   .service .service-icon {
     width: 70px;
     height: 70px;
-    font-size: 25px;
+    font-size: 15px;
   }
   .service-content {
     padding-left: 85px;
