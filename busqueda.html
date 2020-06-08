@@ -58,38 +58,13 @@
 		<div class="loader"></div>
 	</div>
 	
-	<div class="header-info">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-3 col-md-6 hi-item">
-					<div class="hs-icon">
-						<img src="img/icons/clock.png" alt="">
-					</div>
-					
-				</div>
-				<div class="col-lg-3 col-md-6 hi-item">
-					<div class="hs-icon">
-						<img src="img/icons/phone.png" alt="">
-					</div>
-					
-				</div>
-				<div class="col-lg-3 col-md-6 hi-item">
-					<div class="hs-icon">
-						<img src="img/icons/calendar.png" alt="">
-					</div>
-					
-				</div>
-			</div>
-		</div>
-	</div>
-
 
 	<!-- Header section -->
 	<!--<header class="header-section">-->
 		<div class="container">
 			<!-- Site Logo -->
 			<a href="index.html" class="site-logo">
-				<img src="img/tod2.png" alt="">
+				<img src="img/viaz2.png" alt="">
 			</a>
 			<!-- responsive -->
 			<div class="nav-switch">
@@ -144,11 +119,16 @@
 					 <!--study-template v-for="(study, index) in resulsetFin" v-bind:study="study" v-bind:key="index"/-->
 					 <div class="container">
 						 <div v-if="banFindResult == 0">
-							 <p>Poner una imagen o info que se te antoje para indicar QUE
-								 pueen hacer una cotuzacion , puede poner imagenes mensajes 
-								 etc etc. we
-							 </p>
-							 <img src="./img/lab.png">
+							 <p> Para conocer los precios, primero escribe el estudio o paquetes que deseas realizarte y acontinuacion se mostrara los precios con indicaciones,
+								  y tambien podras enviar tu cotizacion al correo	 
+							<br>
+							<br> Nuestros estudios cuentan con las certificaciones y acreditaciones que nos hacen tener los estándares más altos a nivel mundial,
+								  todos ellos realizados por médicos altamente capacitados en cada una de las especialidades; además, contamos con la tecnología
+								   de vanguardia que requiere el diagnóstico de tu salud.
+								   <br>
+								   <br>
+								   ¡ Recuerda que personas de 3era Edad tiene un 10% de Descuento ! </p>
+
 						 </div>
 						 <div v-if="banFindResult == 1">
 							 <h1>No se encontraron resultados...!</h1>
@@ -202,8 +182,7 @@
 									<thead>
 									<tr>
 										<th>Estudio</th>
-										<th>Cantidad</th>
-										<th>P. U.</th>
+										<th>Cantidad</th>										
 										<th>Total</th>
 										<th>Eliminar</th>
 									</tr>
@@ -217,7 +196,6 @@
 											<img src="./img/minus.png" v-on:click="delCountStudy(study.estudio)">
 										</td>
 										<td>${{study.price }}</td>
-										<td>${{study.price * study.cantidad }}</td>
 										<td><img src="./img/del32.png" v-on:click="deleteEstudio(study.estudio)"></td>
 									</tr>
 									</tbody>
@@ -226,7 +204,7 @@
 						</div>						
 						<!-- Modal footer -->
 						<div class="modal-footer">
-						  <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+						  <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
 						</div>
 						
 					  </div>
@@ -274,7 +252,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Labor
 		
 		Vue.component('study-template',{
 			props:['study'],
-			template:'<div class="card border-primary mb-3"><div class="card-body"><h5 class="card-title">{{study.estudio}}</h5><img class="rounded float-left" :src="getImage(study.image)" alt="Not Found" ><p class="card-text h6 text-justify">{{study.suggestion}}</p></div><div class="card-footer"><div class="row"><div class="col-sm"><p class="h6">Precio: $ {{study.price}}</p></div><div class="col-sm"><button type="button" v-on:click="sendItemIntoShopingCar()" class="btn btn-success">Agregar al carrito</button></div></div></div></div>',
+			template:'<div class="card border-primary mb-3"><div class="card-body"><h5 class="card-title">{{study.estudio}}</h5><img class="rounded float-left" :src="getImage(study.image)" alt="Not Found" ><br><p class="card-text h6 text-justify"><br><br><br>{{study.suggestion}}</p></div><div class="card-footer"><div class="row"><div class="col-sm"><p class="h6">Precio: $ {{study.price}}</p></div><div class="col-sm"><button type="button" v-on:click="sendItemIntoShopingCar()" class="btn btn-success">Agregar</button></div></div></div></div>',
 			methods:{
 				getImage: function(name){
 					return './img/studies/'+name;
@@ -393,7 +371,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Labor
 			}
 		});
 		var globalEtudies = [
-				{ estudio: "Baciloscopia 1 Muestra",suggestion: " Traer la primera expectoración (flema no saliva) de la mañana, no recolectarla en el laboratorio", image:"3.jpg", price:200},
+				{ estudio: "Baciloscopia 1 Muestra",suggestion: " Traer la primera expectoración (flema no saliva) de la mañana, no recolectarla en el laboratorio", image:"viaz.png", price:200},
 				{ estudio: "Baciloscopia 5 Muestras",suggestion: " Traer la primera expectoración (flema no saliva) de la mañana, no recolectarla en el laboratorio", image:"3.jpg", price:800},
 				{ estudio: "Baciloscopia 3 Muestras",suggestion: " Traer la primera expectoración (flema no Saliva) de la mañana, no recolectarla en el laboratorio", image:"3.jpg", price:550},
 				{ estudio: "CULTIVO DE EXPECTORACION",suggestion: " RECOLECTAR LA PRIMERA FLEMA EN FRASCO ESTERIL.NO ESTAR TOMANDO ANTIBIOTICOS 7 DESPUES DEL TRATAMIENTO", image:"3.jpg", price:340},
@@ -653,7 +631,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Labor
 				{ estudio: "Perfil De Drogas Completo (5)",suggestion: " Si el paciente es mayor de edad presentar identificación oficial; caso contrario deberá presentarse con su tutor acreditando el parentesco.", image:"3.jpg", price:500},
 				{ estudio: "Perfil De Hierro",suggestion: " ¡No tiene indicaciones!", image:"3.jpg", price:450},
 				{ estudio: "Perfil De Hierro + Ferritina",suggestion: " Ayuno de 8 a 12 horas", image:"3.jpg", price:700},
-				{ estudio: "Perfil De Lipidos Basico",suggestion: " Ayuno de 8 hrs mInimo, máximo 12 hrs, para bebes 3 horas de ayuno", image:"3.jpg", price:440},
+				{ estudio: "Perfil De Lipidos Basico",suggestion: " Ayuno de 8 hrs mInimo, máximo 12 hrs, para bebes 3 horas de ayuno", image:"Lab.jpg", price:440},
 				{ estudio: "Perfil Hipofisiario",suggestion: " Toma de muestra de 6:30 am a 9:00 am únicamente.", image:"3.jpg", price:1400},
 				{ estudio: "PERFIL TIROIDEO III (TSH, T3T, T3L, T-UP, T4T, T4L, T4 YODO, ITL, I PROTEICO, I BUTANOLICO, TPO, TG)",suggestion: " AYUNO DE 8 A 12 HORAS TOMA DE MUESTRA 7 A 10 A.M NO REALIZAR EJERCICIO ANTES DE LA TOMA DE MUESTRA.", image:"3.jpg", price:1210},
 				{ estudio: "PERFIL TIROIDEO IV (T3 TOTAL, T4 TOTAL, TSH Y T4 LIBRE)",suggestion: " AYUNO MINIMO DE 8 HRS. TOMA DE MUESTRAS DE 6:30 AM A 10:00 AM. NO REALIZAR EJERCICIO ANTES DE LA TOMA.", image:"3.jpg", price:800},
